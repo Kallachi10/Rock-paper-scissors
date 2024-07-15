@@ -14,6 +14,10 @@ function getUserChoice(){
     return choice.toLowerCase();
 }
 function whoWins(c1,c2){
+    if(c1==c2){
+        return -1;
+    }
+    else{
     switch(c1){
         case "rock": if(c2==="scissors")
                         return 0;
@@ -29,6 +33,7 @@ function whoWins(c1,c2){
                      else
                         return 1;
     }
+}
 }
 
 let userChoice='';
@@ -61,9 +66,13 @@ comp.textContent = "Computer Choice: ";
                 userScore.textContent = humanScore;
             }
         
-            else{
+            else if(win==1){
                 computerScore++;
                 compScore.textContent = computerScore;
+            }
+
+            else{
+                /*do nothing*/
             }
         });
     });
