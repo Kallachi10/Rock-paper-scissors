@@ -30,39 +30,48 @@ function whoWins(c1,c2){
                         return 1;
     }
 }
-let round = prompt("choose the number of rounds");
-let humanScore=0;
-let computerScore=0;
-let count=1;
-while(round!=0){
-    
-    alert("round "+count);
-    let humanChoice = getUserChoice();
-    let computerChoice = getComputerChoice();
-    alert("your choice:"+humanChoice);
-    alert("computer choice:"+computerChoice);
 
-    if(humanChoice===computerChoice){
-        alert("round "+count+" is draw");
-    }
-    else{
+let userChoice='';
+let computerChoice='';
+let humanScore = 0;
+let computerScore = 0;
+const btn = document.querySelectorAll("button");
+const user = document.querySelector(".user");
+const comp = document.querySelector(".comp");
+const score = document.querySelector(".scoreTable");
+const userScore = document.querySelector(".v1");
+const compScore = document.querySelector(".v2");
+
+userScore.textContent="0";
+compScore.textContent="0";
+
+user.textContent = "Make Your Choice: ";
+comp.textContent = "Computer Choice: ";
+    btn.forEach((button) => {
+        button.addEventListener("click",(e)=>{
+            user.textContent = "Make Your Choice: ";
+            comp.textContent = "Computer Choice: ";
+            userChoice = e.target.textContent.toLowerCase();
+            computerChoice = getComputerChoice();
+            user.textContent += userChoice;
+            comp.textContent += computerChoice;
+            let win = whoWins(userChoice,computerChoice);
+            if(win==0){
+                humanScore++;
+                userScore.textContent = humanScore;
+            }
         
-        if(whoWins(humanChoice,computerChoice)==0){
-            humanScore++;
-            alert("user wins round"+count+"\nscore is "+humanScore);
-        }
-        else{
-            computerScore++;
-            alert("computer wins round"+count+"\nscore is "+computerScore);
-        }
-    }
-    round--;
-    count++;
-}
+            else{
+                computerScore++;
+                compScore.textContent = computerScore;
+            }
+        });
+    });
 
-if(humanScore>computerScore)
-    alert("human wins");
-else if(computerScore>humanScore)
-    alert("computer wins");
-else
-    alert("Draw!");
+    
+
+
+
+
+
+

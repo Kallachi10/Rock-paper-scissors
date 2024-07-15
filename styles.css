@@ -1,0 +1,53 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background: beige;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:bold;
+}
+
+.button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 500px;
+}
+
+button{
+    height: 300px;
+    width: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    font-size: 0px;
+}
+
+.rock{
+    margin-left: 40px;
+    background : url(./img/rock.jpg);
+    background-size:cover;
+    background-position: center;
+}
+.paper{
+    background-image: url(./img/paper.jpg);
+    background-size :cover;
+}
+.scissors{
+    margin-right: 40px;
+    background-image: url(./img/scissors.jpg);
+    background-size:cover;
+}
+
+.choice{
+    font-size: 30px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.scoreTable{
+    font-size: 30px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
